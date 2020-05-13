@@ -1,5 +1,7 @@
 node {
-   def commit_id
+   def commit_id // variable definition
+   
+   // stage: defines building stages
    stage('Preparation') {
      checkout scm
      sh "git rev-parse --short HEAD > .git/commit-id"                        
@@ -16,4 +18,6 @@ node {
        def app = docker.build("wardviaene/docker-nodejs-demo:${commit_id}", '.').push()
      }
    }
+   
+//stages might be clean>build>test>publish
 }
