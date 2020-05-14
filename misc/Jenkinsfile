@@ -16,7 +16,7 @@ node {
    }
    stage('docker build/push') {
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') { // dockerhub: registry credential on jenkins
-       def app = docker.build("enesccinar/docker-nodejs-demo:${commit_id}", '.').push()
+       def app = docker.build("enesccinar/docker-demo:${commit_id}", '.').push()
      }
    }
    
